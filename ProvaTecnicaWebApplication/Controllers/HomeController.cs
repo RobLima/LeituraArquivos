@@ -31,6 +31,8 @@ namespace ProvaTecnicaWebApplication.Controllers
         public ActionResult Salvar(ArquivosModel model)
         {
             Servico servico = new Servico();
+
+            Servico servico2 = new Servico();
             servico.GravarArquivoCliente(model.ArquivoClientes);
             servico.GravarArquivoProduto(model.ArquivoProdutos);
             return View("Index");
