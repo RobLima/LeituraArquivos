@@ -1,0 +1,27 @@
+﻿@model ProvaTecnicaWebApplication.Models.ArquivosModel
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Prova Técnica</h1>
+    <p class="lead">Prova Técnica para o processo seletivo para Desenvolvedor .NET Pleno </p>
+
+</div>
+
+
+@using (Html.BeginForm("Salvar", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div style="float: left;">
+        @Html.TextBoxFor(p => Model.ArquivoClientes, new { @maxlength = 100, @style = "width: 400px;", type = "file"})
+    </div>
+    <div style="float: left;">
+        @Html.TextBoxFor(p => Model.ArquivoProdutos, new { @maxlength = 100, @style = "width: 400px;", type = "file" })
+    </div>
+    <div style="text-align: center;">
+        <input type="submit" class="button"  value="Salvar" />&nbsp;&nbsp;
+       
+    </div>
+}
