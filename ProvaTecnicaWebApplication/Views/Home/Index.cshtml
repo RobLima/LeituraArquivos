@@ -4,24 +4,32 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<div class="panel panel-primary">
+    <div class="jumbotron">
+        <h1>Prova Técnica</h1>
+        <p class="lead">Prova Técnica para o processo seletivo para Desenvolvedor .NET Pleno </p>
 
-<div class="jumbotron">
-    <h1>Prova Técnica</h1>
-    <p class="lead">Prova Técnica para o processo seletivo para Desenvolvedor .NET Pleno </p>
-
-</div>
-
-
-@using (Html.BeginForm("Salvar", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <div style="float: left;">
-        @Html.TextBoxFor(p => Model.ArquivoClientes, new { @maxlength = 100, @style = "width: 400px;", type = "file"})
     </div>
-    <div style="float: left;">
-        @Html.TextBoxFor(p => Model.ArquivoProdutos, new { @maxlength = 100, @style = "width: 400px;", type = "file" })
+
+
+    @using (Html.BeginForm("Salvar", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div style="float: left;">
+            <label>Arquivo 1 (Clientes)</label>
+            @Html.TextBoxFor(p => Model.ArquivoClientes, new { @maxlength = 100, @style = "width: 400px;", type = "file" })
+        </div>
+        <div style="float: left;">
+            <label>Arquivo 2 (Produtos)</label>
+            @Html.TextBoxFor(p => Model.ArquivoProdutos, new { @maxlength = 100, @style = "width: 400px;", type = "file" })
+        </div>
+        <div style="text-align: center;">
+            <input type="submit" class="button" value="Salvar" />&nbsp;&nbsp;
+
+        </div>
+    }
+
     </div>
-    <div style="text-align: center;">
-        <input type="submit" class="button"  value="Salvar" />&nbsp;&nbsp;
-       
-    </div>
-}
