@@ -9,6 +9,7 @@ namespace BLLDomain.Interfaces.Repositories
     {
         IEnumerable<Produto> GetAll();
 
-        void Add(Produto produto);
+
+        void AddList(List<Produto> lstProduto);
     }
 }

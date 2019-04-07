@@ -20,12 +20,12 @@ namespace Infrastructure.Repository
 
 
 
-        public void Add(Cliente cliente)
+
+        public void AddList(List<Cliente> lstCliente)
         {
-            Db.Clientes.Add(cliente);
+            Db.Clientes.AddRange(lstCliente);
             Db.SaveChanges();
         }
-
 
      
 

@@ -19,9 +19,10 @@ namespace Infrastructure.Repository
 
 
 
-        public void Add(Produto produto)
+      
+        public void AddList(List<Produto> lstProduto)
         {
-            Db.Produtos.Add(produto);
+            Db.Produtos.AddRange(lstProduto);
             Db.SaveChanges();
         }
     }

@@ -46,6 +46,7 @@ namespace Application
             string result = ConvertFileToString(arquivo);
 
             string[] clienteLinhas  = result.Split(';');
+            List<Cliente> lstClientes = new List<Cliente>();
             
           
             foreach (string clienteLinha in clienteLinhas)
@@ -66,15 +67,17 @@ namespace Application
                 else
                     cliente.Ativo = false;
 
-                _clienteRepositoryInterface.Add(cliente);
+                lstClientes.Add(cliente);
             }
+
+            _clienteRepositoryInterface.AddList(lstClientes);
         }
 
         public void GravarArquivoProduto(HttpPostedFileBase arquivo)
         {
             string result = ConvertFileToString(arquivo);
             string[] produtoLinhas = result.Split(';');
-
+            List<Produto> lstProduto = new List<Produto>();
 
             foreach (string produtoLinha in produtoLinhas)
             {
@@ -84,8 +87,10 @@ namespace Application
                 produto.ClienteId = Convert.ToInt16(colunas[1]);
                 produto.Nome = colunas[2];
 
-                _produtoRepositoryProduto.Add(produto);
+                lstProduto.Add(produto);
             }
+
+            _produtoRepositoryProduto.AddList(lstProduto);
         }
     }
 }
